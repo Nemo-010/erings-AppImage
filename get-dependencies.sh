@@ -24,12 +24,12 @@ git clone https://github.com/user-none/erings.git ./erings && (
 	git fetch --tags origin
 	TAG=$(git tag --sort=-v:refname | grep -vi 'rc\|alpha\|beta' | head -1)
 	git checkout "$TAG"
-	echo "$TAG" > ~/version
-
 	make VERSION="$TAG"
+
+	echo "$TAG" > ~/version
 )
 
 mkdir -p ./AppDir/bin
-cp -v ./erings/build/erings ./AppDir/bin
+cp -v ./erings/build/erings             ./AppDir/bin
 cp -v ./erings/packaging/erings.desktop ./AppDir
-cp -v ./erings/packaging/icon-512.png ./AppDir/erings.png
+cp -v ./erings/packaging/icon-512.png   ./AppDir/erings.png
